@@ -1,5 +1,9 @@
 module.exports = {
   theme: {
+    fontFamily: {
+      'serif': 'Playfair Display',
+      'sans': 'Lora, Lato'
+    },
     extend: {}
   },
   variants: {

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Burhanudin Blog</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Lustria|Open+Sans|Playfair+Display:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="build/tailwind.css">
 </head>
 <body>
@@ -43,10 +44,13 @@
         </div>
       </div>
     </nav>
+  </div>
+
+  <div class="max-wd-md sm:max-w-xl lg:max-w-2xl mx-auto px-8 lg:px-12 py-8">
     <div class="mt-8 md:mt-12">
       <header class="mt-2">
-        <h1 class="font-bold text-black font-serif text-3xl leading-tight">Judul Artikel yang tidak Menarik dan terlalu panjang</h1>
-        <h2 class="text-gray-600 mt-1 font-serif text-base">Judul Artikel yang tidak Menarik</h2>
+        <h1 class="font-bold text-black font-serif text-3xl tracking-wider">Simple ENV Phoenix Project</h1>
+        <!-- <h2 class="text-gray-600 mt-1 font-sans text-base">Judul Artikel yang tidak Menarik</h2> -->
       </header>
       <section class="mt-4 flex items-center">
         <svg class="w-10 h-10 rounded-full mr-4 border border-black" width="31px" height="44px" viewBox="0 0 31 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -84,28 +88,36 @@
 
   <section class="max-w-lg sm:max-w-xl lg:max-w-2xl mx-auto">
     <div class="bg-white">
-      <img class="object-cover h-64 w-full" src="img/jessica-ruscello-OQSCtabGkSY-unsplash.jpg"/>
+      <img class="object-contain h-64 w-full" src="https://miro.medium.com/max/700/1*eUsluwGMHjXloaXiek-_bg.png"/>
     </div>
     <p class="text-center text-gray-500 text-sm mt-2 text-serif">Ilustrasi : Foto oleh Jessica Ruscello dari Unsplash</p>
   </section>
 
   <div class="max-w-md sm:max-w-xl lg:max-w-2xl mx-auto px-8 lg:px-12 py-8">
     <article>
-      <section>
-        <h3 class="font-bold text-black font-serif text-xl leading-tight">Judul Artikel yang tidak Menarik</h3>
-        <p class="mt-6 mb-6 font-serif text-base">Judul Artikel yang tidak Menarik dan terlalu panjang Judul Artikel yang
-        tidak Menarik dan terlalu panjang Judul Artikel yang tidak Menarik dan
-        terlalu panjang Judul Artikel yang tidak Menarik dan terlalu panjang Judul
-        Artikel yang tidak Menarik dan terlalu panjang Judul Artikel yang tidak
-        Menarik dan terlalu panjang Judul Artikel yang tidak Menarik dan terlalu
-        panjang </p>
-        <h4 class="font-bold text-black font-serif text-lg leading-tight">Judul Artikel yang tidak Menarik</h4>
-        <p class="mt-6 mb-6 font-serif text-base">Judul Artikel yang tidak Menarik dan terlalu panjang Judul Artikel yang
-        tidak Menarik dan terlalu panjang Judul Artikel yang tidak Menarik dan
-        terlalu panjang Judul Artikel yang tidak Menarik dan terlalu panjang Judul
-        Artikel yang tidak Menarik dan terlalu panjang Judul Artikel yang tidak
-        Menarik dan terlalu panjang Judul Artikel yang tidak Menarik dan terlalu
-        panjang </p>
+      <section class="font-sans text-lg tracking-wider text-justify">
+        <!-- <h3 class="font-bold text-black font-serif text-xl tracking-wider">Judul Artikel yang tidak Menarik</h3> -->
+        <p class="mt-6 mb-6">Helo semua, hari ini saya ingin berbagi bagaimana konfigurasi environment variable secara sederhana untuk Phoenix Framework.
+Langkah-langkah setup environment :</p>
+<code>
+Buatlah file .env.development atau .env.staging atau .env.production
+Isi file .env.development :
+export SECRET_KEY_BASE="secret_is_here"
+export DATABASE_URL="postgres://postgres:postgres123@localhost:5432/dbname"
+export S3_BUCKET_NAME="media"
+export AWS_REGION="ap-southeast-1"
+export GRAPHQL_PORT=4000
+3 . Penggunaan environment variable di file .ex
+config :qontak, App.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: 20,
+  timeout: 60_000,
+  pool_timeout: 60_000,
+  ssl: true
+4. Jalankan phoenix server dengan environment variable:
+source .env.development && iex -S mix phx.server
+Wala… Selesai..</code>
       </section>
       <section>
         <div class="py-4">
