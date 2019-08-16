@@ -12,7 +12,7 @@ export default function (Vue, { router, head, isClient }) {
 
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Lato:400,700|Lora|Lustria|Open+Sans|Playfair+Display:400,700&display=swap'
+    href: 'https://fonts.googleapis.com/css?family=Lato:400,700|Roboto&display=swap'
   })
 
 }

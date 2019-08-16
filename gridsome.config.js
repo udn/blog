@@ -6,7 +6,38 @@
 
 module.exports = {
   siteName: 'Burhanudin Blog',
+  transformers: {
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      plugins: [
+        ['gridsome-plugin-remark-shiki', {
+          theme: 'solarized_dark'
+        }]
+      ]
+    }
+  },
   plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: './content/posts/**/*.md',
+        typeName: 'Post',
+        route: '/:slug',
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            route: '/tag/:id',
+            create: true
+          },
+          author: {
+            typeName: 'Author',
+            route: '/author/:id',
+            create: true
+          }
+        }
+      }
+    },
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
