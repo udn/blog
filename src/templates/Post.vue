@@ -3,7 +3,6 @@
     <div class="article">
       <h1>{{ $page.post.title }}</h1>
       <span>{{ $page.post.date }} | {{ $page.post.author.title }}</span>
-       <!-- <g-image :src="`${this.config.siteUrl}`/images/authors/`${page.post.author.title}`.jpeg"/> -->
       <div class="content" v-html="$page.post.content" />
     </div>
   </Layout>
@@ -13,7 +12,7 @@
 export default {
   metaInfo () {
     return {
-      title: this.$page.Post.title
+      title: this.$page.post.title
     }
   }
 }
